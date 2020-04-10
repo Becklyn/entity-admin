@@ -2,11 +2,10 @@
 
 namespace Becklyn\EntityAdmin\Link;
 
-use Becklyn\EntityAdmin\Link\EntityAdminLinkerInterface;
-use Becklyn\RadBundle\Entity\Interfaces\EntityInterface;
-use Becklyn\RadBundle\Translation\BackendTranslator;
 use Becklyn\EntityAdmin\Link\Data\EntityAdminLink;
 use Becklyn\EntityAdmin\Link\Data\ResolvedEntityAdminLink;
+use Becklyn\RadBundle\Entity\Interfaces\EntityInterface;
+use Becklyn\RadBundle\Translation\BackendTranslator;
 use Symfony\Component\Routing\RouterInterface;
 
 final class EntityAdminLinker
@@ -34,6 +33,7 @@ final class EntityAdminLinker
 
     /**
      * @param EntityInterface[] $entities
+     *
      * @return array<string, ResolvedEntityAdminLink[]>
      */
     public function linkAll (array $entities) : array

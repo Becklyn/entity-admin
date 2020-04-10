@@ -2,10 +2,10 @@
 
 namespace Becklyn\EntityAdmin;
 
-use Becklyn\EntityAdmin\Usage\EntityUsageTransformerInterface;
-use Becklyn\RadBundle\Bundle\BundleExtension;
 use Becklyn\EntityAdmin\Link\EntityAdminLinkerInterface;
 use Becklyn\EntityAdmin\Usage\EntityUsagesProviderInterface;
+use Becklyn\EntityAdmin\Usage\EntityUsageTransformerInterface;
+use Becklyn\RadBundle\Bundle\BundleExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
@@ -20,7 +20,7 @@ final class BecklynEntityAdminBundle extends Bundle
     }
 
 
-    public function build (ContainerBuilder $container)
+    public function build (ContainerBuilder $container) : void
     {
         $container
             ->registerForAutoconfiguration(EntityAdminLinkerInterface::class)

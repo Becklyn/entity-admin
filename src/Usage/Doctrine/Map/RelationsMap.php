@@ -2,13 +2,11 @@
 
 namespace Becklyn\EntityAdmin\Usage\Doctrine\Map;
 
-use Becklyn\EntityAdmin\Usage\Doctrine\Map\DoctrineRelation;
-
 final class RelationsMap
 {
-    /** @var DoctrineRelation[]  */
+    /** @var DoctrineRelation[] */
     private array $relations;
-    /** @var array<string, DoctrineRelation>  */
+    /** @var array<string, DoctrineRelation> */
     private array $targetMap = [];
     /** @var array<string, string[]> */
     private array $entitiesToSearch;

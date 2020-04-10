@@ -2,8 +2,8 @@
 
 namespace Becklyn\EntityAdmin\Link;
 
-use Becklyn\RadBundle\Entity\Interfaces\EntityInterface;
 use Becklyn\EntityAdmin\Link\Data\EntityAdminLink;
+use Becklyn\RadBundle\Entity\Interfaces\EntityInterface;
 
 interface EntityAdminLinkerInterface
 {

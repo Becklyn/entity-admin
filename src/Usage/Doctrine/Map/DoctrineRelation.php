@@ -51,7 +51,6 @@ final class DoctrineRelation
 
 
     /**
-     * @return bool
      */
     public function isMultiple () : bool
     {

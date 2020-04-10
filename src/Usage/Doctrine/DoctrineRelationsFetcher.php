@@ -17,9 +17,9 @@ final class DoctrineRelationsFetcher
     private CacheInterface $cache;
     private bool $isDebug;
 
-    /** @var ManagerRegistry */
 
-
+    /**
+     */
     public function __construct (
         ManagerRegistry $registry,
         CacheInterface $cache,
@@ -33,9 +33,7 @@ final class DoctrineRelationsFetcher
 
 
     /**
-     * @param EntityInterface $entity
      *
-     * @return array
      */
     public function fetchEntitiesFromRelations (EntityInterface $entity) : array
     {
