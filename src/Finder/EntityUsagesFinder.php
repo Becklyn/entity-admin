@@ -8,10 +8,10 @@ use Becklyn\EntityAdmin\Usage\EntityUsagesProviderInterface;
 
 final class EntityUsagesFinder
 {
-    /** @var iterable<EntityUsagesProviderInterface> */
+    /** @var iterable<EntityUsagesProviderInterface>|EntityUsagesProviderInterface[] */
     private iterable $providers;
 
-    /** @var iterable<EntityUsageTransformerInterface> */
+    /** @var iterable<EntityUsageTransformerInterface>|EntityUsageTransformerInterface[] */
     private iterable $transformers;
 
     /**
@@ -38,7 +38,7 @@ final class EntityUsagesFinder
         {
             foreach ($provider->provideUsages($entity) as $relation)
             {
-                $relatedEntity = $this->transformEntity($relation);
+                $relatedEntity = $this->transformEntity($entity, $relation);
 
                 if (null === $relatedEntity)
                 {
@@ -57,11 +57,11 @@ final class EntityUsagesFinder
     /**
      * Transforms the entity with the registered transformers
      */
-    private function transformEntity (EntityInterface $entity) : ?EntityInterface
+    private function transformEntity (EntityInterface $source, EntityInterface $entity) : ?EntityInterface
     {
         foreach ($this->transformers as $transformer)
         {
-            $entity = $transformer->transform($entity);
+            $entity = $transformer->transform($source, $entity);
 
             if (null === $entity)
             {
