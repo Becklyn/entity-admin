@@ -1,0 +1,35 @@
+{
+    "name": "becklyn/usages",
+    "type": "symfony-bundle",
+    "description": "Finds usages of doctrine entities.",
+    "require": {
+        "php": "^7.4",
+        "becklyn/rad-bundle": "^7.5",
+        "symfony/http-foundation": "^5.0",
+        "symfony/http-kernel": "^5.0",
+        "symfony/routing": "^5.0"
+    },
+    "require-dev": {
+        "roave/security-advisories": "dev-master",
+        "symfony/phpunit-bridge": "^5.0.7"
+    },
+    "config": {
+        "sort-packages": true
+    },
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.x-dev",
+            "dev-next": "1.x-dev"
+        }
+    },
+    "autoload": {
+        "psr-4": {
+            "Becklyn\\Usages\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\Becklyn\\Usages\\": "tests/"
+        }
+    }
+}
