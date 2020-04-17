@@ -7,6 +7,7 @@ use Becklyn\EntityAdmin\Link\Data\ResolvedEntityAdminLink;
 use Becklyn\RadBundle\Entity\Interfaces\EntityInterface;
 use Becklyn\RadBundle\Translation\BackendTranslator;
 use Symfony\Component\Routing\RouterInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 final class EntityAdminLinker
 {
@@ -14,6 +15,7 @@ final class EntityAdminLinker
     private iterable $linkers;
     private BackendTranslator $backendTranslator;
     private RouterInterface $router;
+    private TranslatorInterface $translator;
 
 
     /**
@@ -22,12 +24,14 @@ final class EntityAdminLinker
     public function __construct (
         iterable $linkers,
         BackendTranslator $backendTranslator,
-        RouterInterface $router
+        RouterInterface $router,
+        TranslatorInterface $translator
     )
     {
         $this->linkers = $linkers;
         $this->router = $router;
         $this->backendTranslator = $backendTranslator;
+        $this->translator = $translator;
     }
 
 
@@ -82,6 +86,7 @@ final class EntityAdminLinker
         $grouped = [];
         $ungrouped = [];
 
+        /** @var EntityAdminLink|null $link */
         foreach ($links as $link)
         {
             if (null === $link)
@@ -89,7 +94,7 @@ final class EntityAdminLinker
                 continue;
             }
 
-            $resolved = $link->resolve($this->router);
+            $resolved = $link->resolve($this->router, $this->translator);
 
             if (null !== $link->getGroup())
             {
