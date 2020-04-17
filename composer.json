@@ -1,10 +1,11 @@
 {
-    "name": "becklyn/usages",
+    "name": "becklyn/entity-admin",
     "type": "symfony-bundle",
-    "description": "Finds usages of doctrine entities.",
+    "description": "Provides functionality for handling entities in an admin backend.",
     "require": {
         "php": "^7.4",
         "becklyn/rad-bundle": "^7.5",
+        "symfony/cache-contracts": "^2.0",
         "symfony/http-foundation": "^5.0",
         "symfony/http-kernel": "^5.0",
         "symfony/routing": "^5.0"
@@ -24,12 +25,12 @@
     },
     "autoload": {
         "psr-4": {
-            "Becklyn\\Usages\\": "src/"
+            "Becklyn\\EntityAdmin\\": "src/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Tests\\Becklyn\\Usages\\": "tests/"
+            "Tests\\Becklyn\\EntityAdmin\\": "tests/"
         }
     }
 }

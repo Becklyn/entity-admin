@@ -1,0 +1,17 @@
+services:
+    _defaults:
+        autowire: true
+        autoconfigure: true
+        bind:
+            $isDebug: '%kernel.debug%'
+
+    Becklyn\EntityAdmin\:
+        resource: '../src/*'
+        exclude: '../src/{DependencyInjection,Event,Exception,Link/Data,BecklynEntityAdminBundle.php}'
+
+    Becklyn\EntityAdmin\Finder\EntityUsagesFinder:
+        $providers: !tagged becklyn.entity-admin.usages-provider
+        $transformers: !tagged becklyn.entity-admin.usages-transformer
+
+    Becklyn\EntityAdmin\Link\EntityAdminLinker:
+        $linkers: !tagged becklyn.entity-admin.linker
