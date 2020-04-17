@@ -3,7 +3,9 @@
 namespace Becklyn\EntityAdmin\Link\Data;
 
 use Becklyn\RadBundle\Route\DeferredRoute;
+use Becklyn\RadBundle\Translation\DeferredTranslation;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
+use Symfony\Contracts\Translation\TranslatorInterface;
 
 /**
  * An unresolved entity usage. Optimized for ease of use.
@@ -13,7 +15,7 @@ use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 final class EntityAdminLink
 {
     /**
-     * @var string[]
+     * @var array<string|DeferredTranslation>
      */
     private $labels;
 
@@ -39,8 +41,8 @@ final class EntityAdminLink
 
 
     /**
-     * @param string|string[] $labels
-     * @param string|null     $group  The group name. Will be translated in the `backend` domain.
+     * @param string|DeferredTranslation|array<string|DeferredTranslation> $labels
+     * @param string|null                                                  $group  The group name. Will be translated in the `backend` domain.
      */
     public function __construct ($labels, ?string $group = null, ?string $type = null, ?DeferredRoute $link = null)
     {
@@ -52,6 +54,7 @@ final class EntityAdminLink
 
 
     /**
+     * @return array<string|DeferredTranslation>
      */
     public function getLabels () : array
     {
@@ -86,10 +89,10 @@ final class EntityAdminLink
     /**
      * Resolves the entity usage
      */
-    public function resolve (UrlGeneratorInterface $urlGenerator) : ResolvedEntityAdminLink
+    public function resolve (UrlGeneratorInterface $urlGenerator, TranslatorInterface $translator) : ResolvedEntityAdminLink
     {
         return new ResolvedEntityAdminLink(
-            $this->labels,
+            DeferredTranslation::translateAllValues($this->labels, $translator),
             $this->type,
             null !== $this->link
                 ? $this->link->generate($urlGenerator)
