@@ -38,7 +38,7 @@ final class EntityUsagesFinder
         {
             foreach ($provider->provideUsages($entity) as $relation)
             {
-                $relatedEntity = $this->transformEntity($entity, $relation);
+                $relatedEntity = $this->transformEntity($relation, $entity);
 
                 if (null === $relatedEntity)
                 {
