@@ -2,6 +2,14 @@
     "name": "becklyn/entity-admin",
     "type": "symfony-bundle",
     "description": "Provides functionality for handling entities in an admin backend.",
+    "homepage": "https://github.com/Becklyn/entity-admin",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Becklyn Studios",
+            "homepage": "https://becklyn.com/"
+        }
+    ],
     "require": {
         "php": "^7.4",
         "becklyn/rad-bundle": "^7.5",
