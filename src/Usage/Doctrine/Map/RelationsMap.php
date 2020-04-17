@@ -6,7 +6,7 @@ final class RelationsMap
 {
     /** @var DoctrineRelation[] */
     private array $relations;
-    /** @var array<string, DoctrineRelation> */
+    /** @var array<string, DoctrineRelation[]> */
     private array $targetMap = [];
     /** @var array<string, string[]> */
     private array $entitiesToSearch;
@@ -54,7 +54,6 @@ final class RelationsMap
     {
         $relations = [];
         $aliases = $this->entitiesToSearch[$className] ?? [$className];
-        dump($aliases);
 
         foreach ($aliases as $aliasClass)
         {
