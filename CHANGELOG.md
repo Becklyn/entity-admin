@@ -1,3 +1,9 @@
+1.0.2
+=====
+
+*   (improvement) Always create a link, even if no linker is responsible.
+
+
 1.0.1
 =====
 

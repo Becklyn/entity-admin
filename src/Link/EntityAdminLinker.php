@@ -47,12 +47,7 @@ final class EntityAdminLinker
 
         foreach ($entities as $entity)
         {
-            $link = $this->linkToEntity($entity);
-
-            if (null !== $link)
-            {
-                $links[] = $link;
-            }
+            $links[] = $this->linkToEntity($entity);
         }
 
         return $this->resolveAndGroupLinks($links);
@@ -62,22 +57,46 @@ final class EntityAdminLinker
     /**
      * Generates the link to the given entity
      */
-    private function linkToEntity (EntityInterface $entity) : ?EntityAdminLink
+    private function linkToEntity (EntityInterface $entity) : EntityAdminLink
     {
         foreach ($this->linkers as $linker)
         {
             if ($linker->supports($entity))
             {
-                return $linker->link($entity);
+                $generated = $linker->link($entity);
+
+                if (null !== $generated)
+                {
+                    return $generated;
+                }
+
+                break;
             }
         }
 
-        return null;
+        return new EntityAdminLink($this->generateDefaultName($entity));
     }
 
 
     /**
-     * @param array<EntityAdminLink|null> $links
+     * Generates the default name
+     */
+    private function generateDefaultName (EntityInterface $entity) : string
+    {
+        $name = \get_class($entity);
+        $lastSlash = \strrpos($name, "\\");
+
+        if (false !== $lastSlash)
+        {
+            $name = \substr($name, $lastSlash + 1);
+        }
+
+        return \sprintf('%s (#%d)', $name, $entity->getId());
+    }
+
+
+    /**
+     * @param EntityAdminLink[] $links
      *
      * @return array<string, ResolvedEntityAdminLink[]>
      */
@@ -89,11 +108,6 @@ final class EntityAdminLinker
         /** @var EntityAdminLink|null $link */
         foreach ($links as $link)
         {
-            if (null === $link)
-            {
-                continue;
-            }
-
             $resolved = $link->resolve($this->router, $this->translator);
 
             if (null !== $link->getGroup())
