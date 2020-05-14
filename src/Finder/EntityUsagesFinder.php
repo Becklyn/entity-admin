@@ -57,18 +57,18 @@ final class EntityUsagesFinder
     /**
      * Transforms the entity with the registered transformers
      */
-    private function transformEntity (EntityInterface $source, EntityInterface $entity) : ?EntityInterface
+    private function transformEntity (EntityInterface $usage, EntityInterface $source) : ?EntityInterface
     {
         foreach ($this->transformers as $transformer)
         {
-            $entity = $transformer->transform($source, $entity);
+            $source = $transformer->transform($usage, $source);
 
-            if (null === $entity)
+            if (null === $source)
             {
                 return null;
             }
         }
 
-        return $entity;
+        return $source;
     }
 }
