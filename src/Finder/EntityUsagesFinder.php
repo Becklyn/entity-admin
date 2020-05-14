@@ -36,17 +36,17 @@ final class EntityUsagesFinder
 
         foreach ($this->providers as $provider)
         {
-            foreach ($provider->provideUsages($entity) as $relation)
+            foreach ($provider->provideUsages($entity) as $rawUsage)
             {
-                $relatedEntity = $this->transformEntity($relation, $entity);
+                $usage = $this->transformEntity($rawUsage, $entity);
 
-                if (null === $relatedEntity)
+                if (null === $usage)
                 {
                     continue;
                 }
 
-                $key = \get_class($relatedEntity) . ":{$relatedEntity->getId()}";
-                $usages[$key] = $relatedEntity;
+                $key = \get_class($usage) . ":{$usage->getId()}";
+                $usages[$key] = $usage;
             }
         }
 
