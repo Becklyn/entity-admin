@@ -61,14 +61,14 @@ final class EntityUsagesFinder
     {
         foreach ($this->transformers as $transformer)
         {
-            $source = $transformer->transform($usage, $source);
+            $usage = $transformer->transform($usage, $source);
 
-            if (null === $source)
+            if (null === $usage)
             {
                 return null;
             }
         }
 
-        return $source;
+        return $usage;
     }
 }

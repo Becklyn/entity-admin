@@ -1,3 +1,9 @@
+1.0.3
+=====
+
+*   (bug) Fix invalid return value.
+
+
 1.0.2
 =====
 
