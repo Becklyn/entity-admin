@@ -2,7 +2,7 @@
 
 namespace Becklyn\EntityAdmin\Usage;
 
-use Becklyn\RadBundle\Entity\Interfaces\EntityInterface;
+use Becklyn\Rad\Entity\Interfaces\EntityInterface;
 
 interface EntityUsagesProviderInterface
 {

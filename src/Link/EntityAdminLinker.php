@@ -4,8 +4,8 @@ namespace Becklyn\EntityAdmin\Link;
 
 use Becklyn\EntityAdmin\Link\Data\EntityAdminLink;
 use Becklyn\EntityAdmin\Link\Data\ResolvedEntityAdminLink;
-use Becklyn\RadBundle\Entity\Interfaces\EntityInterface;
-use Becklyn\RadBundle\Translation\BackendTranslator;
+use Becklyn\Rad\Entity\Interfaces\EntityInterface;
+use Becklyn\Rad\Translation\BackendTranslator;
 use Symfony\Component\Routing\RouterInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 

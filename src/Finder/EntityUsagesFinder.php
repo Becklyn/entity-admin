@@ -4,7 +4,7 @@ namespace Becklyn\EntityAdmin\Finder;
 
 use Becklyn\EntityAdmin\Usage\EntityUsagesProviderInterface;
 use Becklyn\EntityAdmin\Usage\EntityUsageTransformerInterface;
-use Becklyn\RadBundle\Entity\Interfaces\EntityInterface;
+use Becklyn\Rad\Entity\Interfaces\EntityInterface;
 
 final class EntityUsagesFinder
 {
