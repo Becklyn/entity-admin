@@ -13,6 +13,7 @@
     "require": {
         "php": "^7.4",
         "becklyn/rad": "^8.0",
+        "becklyn/rad-bundles": "^1.0",
         "symfony/cache-contracts": "^2.1",
         "symfony/http-foundation": "^5.1",
         "symfony/http-kernel": "^5.1",
