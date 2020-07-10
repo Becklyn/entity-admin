@@ -3,7 +3,7 @@
 namespace Becklyn\EntityAdmin\Usage\Doctrine;
 
 use Becklyn\EntityAdmin\Usage\EntityUsagesProviderInterface;
-use Becklyn\RadBundle\Entity\Interfaces\EntityInterface;
+use Becklyn\Rad\Entity\Interfaces\EntityInterface;
 
 final class DoctrineRelationsUsagesProvider implements EntityUsagesProviderInterface
 {

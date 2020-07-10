@@ -1,3 +1,9 @@
+1.0.4
+=====
+
+*   (improvement) Bump all dependencies (esp. to Symfony 5.1 and `becklyn/rad 8.0`).
+
+
 1.0.3
 =====
 

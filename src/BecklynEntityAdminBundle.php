@@ -5,7 +5,7 @@ namespace Becklyn\EntityAdmin;
 use Becklyn\EntityAdmin\Link\EntityAdminLinkerInterface;
 use Becklyn\EntityAdmin\Usage\EntityUsagesProviderInterface;
 use Becklyn\EntityAdmin\Usage\EntityUsageTransformerInterface;
-use Becklyn\RadBundle\Bundle\BundleExtension;
+use Becklyn\RadBundles\Bundle\BundleExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 

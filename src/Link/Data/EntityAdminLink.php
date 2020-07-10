@@ -2,8 +2,8 @@
 
 namespace Becklyn\EntityAdmin\Link\Data;
 
-use Becklyn\RadBundle\Route\DeferredRoute;
-use Becklyn\RadBundle\Translation\DeferredTranslation;
+use Becklyn\Rad\Route\DeferredRoute;
+use Becklyn\Rad\Translation\DeferredTranslation;
 use Symfony\Component\Routing\Generator\UrlGeneratorInterface;
 use Symfony\Contracts\Translation\TranslatorInterface;
 
