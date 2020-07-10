@@ -12,16 +12,16 @@
     ],
     "require": {
         "php": "^7.4",
-        "becklyn/rad-bundle": "^7.5.3",
-        "symfony/cache-contracts": "^2.0",
-        "symfony/http-foundation": "^5.0",
-        "symfony/http-kernel": "^5.0",
-        "symfony/routing": "^5.0",
-        "symfony/translation-contracts": "^2.0"
+        "becklyn/rad": "^8.0",
+        "symfony/cache-contracts": "^2.1",
+        "symfony/http-foundation": "^5.1",
+        "symfony/http-kernel": "^5.1",
+        "symfony/routing": "^5.1",
+        "symfony/translation-contracts": "^2.1"
     },
     "require-dev": {
         "roave/security-advisories": "dev-master",
-        "symfony/phpunit-bridge": "^5.0.7"
+        "symfony/phpunit-bridge": "^5.1"
     },
     "config": {
         "sort-packages": true
