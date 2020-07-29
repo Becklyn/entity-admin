@@ -1,3 +1,9 @@
+2.0.0
+=====
+
+*   (bc) Allow non-`EntityInterface` usages.
+
+
 1.0.4
 =====
 

@@ -45,7 +45,7 @@ final class EntityUsagesFinder
                     continue;
                 }
 
-                $key = \get_class($usage) . ":{$usage->getId()}";
+                $key = \spl_object_hash($usage);
                 $usages[$key] = $usage;
             }
         }
@@ -57,7 +57,7 @@ final class EntityUsagesFinder
     /**
      * Transforms the entity with the registered transformers
      */
-    private function transformEntity (EntityInterface $usage, EntityInterface $source) : ?EntityInterface
+    private function transformEntity (object $usage, EntityInterface $source) : ?object
     {
         foreach ($this->transformers as $transformer)
         {
