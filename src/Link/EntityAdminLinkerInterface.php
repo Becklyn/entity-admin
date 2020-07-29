@@ -3,7 +3,6 @@
 namespace Becklyn\EntityAdmin\Link;
 
 use Becklyn\EntityAdmin\Link\Data\EntityAdminLink;
-use Becklyn\Rad\Entity\Interfaces\EntityInterface;
 
 interface EntityAdminLinkerInterface
 {

@@ -5,7 +5,6 @@ namespace Becklyn\EntityAdmin\Usage\Doctrine;
 use Becklyn\EntityAdmin\Usage\Doctrine\Map\DoctrineRelation;
 use Becklyn\EntityAdmin\Usage\Doctrine\Map\RelationsMap;
 use Becklyn\Rad\Entity\Interfaces\EntityInterface;
-use Doctrine\ORM\EntityManager;
 use Doctrine\ORM\EntityRepository;
 use Doctrine\ORM\Mapping\ClassMetadataInfo;
 use Doctrine\Persistence\ManagerRegistry;
