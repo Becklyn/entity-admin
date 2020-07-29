@@ -1,7 +1,8 @@
 2.0.0
 =====
 
-*   (bc) Allow non-`EntityInterface` usages.
+*   (feature) Allow non-`EntityInterface` usages + links.
+*   (bc) Adapt interfaces to allow non-`EntityInterface` objects.
 
 
 1.0.4
