@@ -10,7 +10,7 @@ interface EntityUsagesProviderInterface
      * Searches for all entities that are using (= having a relation to)
      * the given entity.
      *
-     * @return EntityInterface[]
+     * @return object[]
      */
     public function provideUsages (EntityInterface $entity) : array;
 }

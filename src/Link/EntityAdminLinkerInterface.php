@@ -3,17 +3,16 @@
 namespace Becklyn\EntityAdmin\Link;
 
 use Becklyn\EntityAdmin\Link\Data\EntityAdminLink;
-use Becklyn\Rad\Entity\Interfaces\EntityInterface;
 
 interface EntityAdminLinkerInterface
 {
     /**
-     * Returns whether the given entity is supported.
+     * Returns whether the given object is supported.
      */
-    public function supports (EntityInterface $entity) : bool;
+    public function supports (object $entity) : bool;
 
     /**
-     * Links to the given entity.
+     * Links to the given object.
      */
-    public function link (EntityInterface $entity) : ?EntityAdminLink;
+    public function link (object $entity) : ?EntityAdminLink;
 }

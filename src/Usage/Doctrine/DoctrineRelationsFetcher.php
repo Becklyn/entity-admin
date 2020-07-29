@@ -16,6 +16,7 @@ final class DoctrineRelationsFetcher
     private ManagerRegistry $registry;
     private CacheInterface $cache;
     private bool $isDebug;
+    private ?RelationsMap $relationsMap = null;
 
 
     /**
@@ -87,12 +88,17 @@ final class DoctrineRelationsFetcher
      */
     private function getMap () : RelationsMap
     {
-        if ($this->isDebug)
+        if (null !== $this->relationsMap)
         {
-            return $this->buildMap();
+            return $this->relationsMap;
         }
 
-        return $this->cache->get(
+        if ($this->isDebug)
+        {
+            return $this->relationsMap = $this->buildMap();
+        }
+
+        return $this->relationsMap = $this->cache->get(
             self::MAP_CACHE_KEY,
             fn () => $this->buildMap()
         );

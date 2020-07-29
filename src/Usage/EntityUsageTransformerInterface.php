@@ -14,8 +14,8 @@ interface EntityUsageTransformerInterface
      *
      * Can return `null` to signal to drop the entity.
      *
-     * @param EntityInterface $usage  one of the entities that is "using" the source entity
+     * @param object          $usage  one of the entities that is "using" the source entity
      * @param EntityInterface $source the entity we are currently looking for usages
      */
-    public function transform (EntityInterface $usage, EntityInterface $source) : ?EntityInterface;
+    public function transform (object $usage, EntityInterface $source) : ?object;
 }

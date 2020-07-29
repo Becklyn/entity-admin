@@ -36,7 +36,7 @@ final class EntityAdminLinker
 
 
     /**
-     * @param EntityInterface[] $entities
+     * @param object[] $entities
      *
      * @return array<string, ResolvedEntityAdminLink[]>
      */
@@ -57,7 +57,7 @@ final class EntityAdminLinker
     /**
      * Generates the link to the given entity
      */
-    private function linkToEntity (EntityInterface $entity) : EntityAdminLink
+    private function linkToEntity (object $entity) : EntityAdminLink
     {
         foreach ($this->linkers as $linker)
         {
@@ -81,7 +81,7 @@ final class EntityAdminLinker
     /**
      * Generates the default name
      */
-    private function generateDefaultName (EntityInterface $entity) : string
+    private function generateDefaultName (object $entity) : string
     {
         $name = \get_class($entity);
         $lastSlash = \strrpos($name, "\\");
@@ -91,7 +91,13 @@ final class EntityAdminLinker
             $name = \substr($name, $lastSlash + 1);
         }
 
-        return \sprintf('%s (#%d)', $name, $entity->getId());
+        return \sprintf(
+            '%s (%s)',
+            $name,
+            $entity instanceof EntityInterface
+                ? "#" . (string) $entity->getId()
+                : "@" . \spl_object_id($entity)
+        );
     }
 
 

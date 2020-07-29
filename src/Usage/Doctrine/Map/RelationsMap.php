@@ -65,20 +65,4 @@ final class RelationsMap
 
         return \array_values($relations);
     }
-
-
-    /**
-     * Fetches all relations targeting the given class name
-     */
-    private function fetchRelations (string $className) : array
-    {
-        $relations = [];
-
-        foreach (($this->targetMap[$className] ?? []) as $relation)
-        {
-            $relations[$relation->getUniqueKey()] = $relation;
-        }
-
-        return $relations;
-    }
 }
