@@ -7,6 +7,7 @@ use Becklyn\EntityAdmin\Usage\EntityUsagesProviderInterface;
 use Becklyn\EntityAdmin\Usage\EntityUsageTransformerInterface;
 use Becklyn\RadBundles\Bundle\BundleExtension;
 use Symfony\Component\DependencyInjection\ContainerBuilder;
+use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 final class BecklynEntityAdminBundle extends Bundle
@@ -14,7 +15,7 @@ final class BecklynEntityAdminBundle extends Bundle
     /**
      * @inheritDoc
      */
-    public function getContainerExtension ()
+    public function getContainerExtension () : ?ExtensionInterface
     {
         return new BundleExtension($this);
     }
@@ -39,7 +40,7 @@ final class BecklynEntityAdminBundle extends Bundle
     /**
      * @inheritDoc
      */
-    public function getPath ()
+    public function getPath () : string
     {
         return \dirname(__DIR__);
     }

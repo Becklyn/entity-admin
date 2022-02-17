@@ -4,8 +4,6 @@ namespace Becklyn\EntityAdmin\Usage\Doctrine\Map;
 
 final class RelationsMap
 {
-    /** @var DoctrineRelation[] */
-    private array $relations;
     /** @var array<string, DoctrineRelation[]> */
     private array $targetMap = [];
     /** @var array<string, string[]> */
@@ -16,7 +14,6 @@ final class RelationsMap
      */
     public function __construct (array $relations, array $entitiesToSearch)
     {
-        $this->relations = $relations;
         $this->entitiesToSearch = $entitiesToSearch;
 
         foreach ($relations as $relation)
